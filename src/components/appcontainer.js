@@ -1,5 +1,6 @@
 import React from 'react';
 import Home from './home'
+import Result from './searchresult'
 
 class AppContainer extends React.Component {
     constructor(props){
@@ -13,10 +14,18 @@ class AppContainer extends React.Component {
         switch(this.state.container)
         {
             case "home":
-                return <Home />
+                return <Home containerChange = {this.containerChange}/>
+            case "result":
+                return <Result containerChange = {this.containerChange}/>
             default:
-                return <Home />
+                return <Home containerChange = {this.containerChange}/>
         }
+    }
+
+    containerChange = (_container)=>{
+        this.setState({
+            container: _container
+        })
     }
 
 }

@@ -9,8 +9,12 @@ class Home extends React.Component{
     render(){
         return <div>
             <h3>Welcome to Tenzing !! Your personal travel agent</h3>
-            <Question />
+            <Question containerChange = {this.onContainerCnage} />
         </div>;
+    }
+
+    onContainerCnage = (_cont) =>{
+        this.props.containerChange(_cont);
     }
 }
 
