@@ -1,6 +1,5 @@
 import axios from 'axios';
 import apiUrl from './servicebase';
-const axios = require('axios');
 
 class QuestionService {
 
