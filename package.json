@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "amadeus": "^3.2.0",
+    "axios": "^0.19.0",
     "install": "^0.13.0",
     "npm": "^6.13.0",
     "react": "^16.11.0",
