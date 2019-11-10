@@ -1,23 +1,29 @@
 import React from 'react'
+const { data } = require('./data')
 var platform = new window.H.service.Platform({
     'apikey': '{pazVy0v7-hbSP07Hu_DT8SMxYZRjl6YBX4PpHVMcthY}'
 });
 
-
+console.log(data)
+const {lat, lng} = data[0].location
+const location = {lat, lng}
 
 class SearchResult extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            map:undefined
+            location,
+            map:undefined,
+            locations: data[0].poi
         }
     }
   
     render(){
+        debugger
         return(
         <div>
             <div><h4>Suggested Flight</h4></div>
-            <div>Prediction from the engine here</div>
+        <div>to {data[0].airport}</div>
             <div><h4>Suggested Hotel</h4></div>
             <div>Prediction from the engine here</div>
             <div><h4>Around the location</h4></div>
@@ -27,7 +33,6 @@ class SearchResult extends React.Component {
     }
 
     componentDidMount(){
-        debugger;
         var defaultLayers = platform.createDefaultLayers();
 
         // Instantiate (and display) a map object:
@@ -36,8 +41,14 @@ class SearchResult extends React.Component {
           defaultLayers.vector.normal.map,
           {
             zoom: 10,
-            center: { lng: 13.4, lat: 52.51 }
+            center: this.state.location
           });
+
+          for (var i = 0; i < this.state.locations.length; i++) {
+            console.log(this.state.locations[i])
+            var marker = new window.H.map.Marker(this.state.locations[0])
+            map.addObject(marker);
+        }
 
         //   this.setState({
         //       rendererdOn: Date.now,
