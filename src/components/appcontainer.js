@@ -16,15 +16,16 @@ class AppContainer extends React.Component {
             case "home":
                 return <Home containerChange = {this.containerChange}/>
             case "result":
-                return <Result containerChange = {this.containerChange}/>
+                return <Result containerChange = {this.containerChange} data= {this.state.data}/>
             default:
                 return <Home containerChange = {this.containerChange}/>
         }
     }
 
-    containerChange = (_container)=>{
+    containerChange = (_container, _data)=>{
         this.setState({
-            container: _container
+            container: _container,
+            data: _data
         })
     }
 
