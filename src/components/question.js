@@ -1,4 +1,5 @@
 import React from 'react';
+import questionservice from '../api/questionservice';
 
 
 class Question extends React.Component {
@@ -38,8 +39,8 @@ class Question extends React.Component {
     }
 
     onGoClick =(event) =>{
-        debugger;
-        this.props.containerChange("result")
+        var data = questionservice.getSuggestionsData();
+        this.props.containerChange("result", data)
     }
 
     onSiteChanged = (event) => {

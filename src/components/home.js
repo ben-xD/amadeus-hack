@@ -13,8 +13,8 @@ class Home extends React.Component{
         </div>;
     }
 
-    onContainerCnage = (_cont) =>{
-        this.props.containerChange(_cont);
+    onContainerCnage = (_cont, data) =>{
+        this.props.containerChange(_cont, data);
     }
 }
 

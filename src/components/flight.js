@@ -25,6 +25,7 @@ class Flight extends React.PureComponent{
         //     console.log(responseError.code);
         //   });
 
+        
         questionService.getQuestions(1).then(function(response) {
            console.log(response.data);
         })
